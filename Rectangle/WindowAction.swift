@@ -41,7 +41,17 @@ enum WindowAction: Int {
     moveRight = 26,
     moveUp = 27,
     moveDown = 28,
-    almostMaximize = 29
+    almostMaximize = 29,
+    action0 = 30,
+    action1 = 31,
+    action2 = 32,
+    action3 = 33,
+    action4 = 34,
+    action5 = 35,
+    action6 = 36,
+    action7 = 37,
+    action8 = 38,
+    action9 = 39
     
     // Order matters here - it's used in the menu
     static let active = [leftHalf, rightHalf, topHalf, bottomHalf,
@@ -49,7 +59,8 @@ enum WindowAction: Int {
                          firstThird, firstTwoThirds, centerThird, lastTwoThirds, lastThird,
                          maximize, almostMaximize, maximizeHeight, smaller, larger, center, restore,
                          nextDisplay, previousDisplay,
-                         moveLeft, moveRight, moveUp, moveDown]
+                         moveLeft, moveRight, moveUp, moveDown,
+                         action0, action1, action2, action3, action4, action5, action6, action7, action8, action9]
     
     func post() {
         NotificationCenter.default.post(name: notificationName, object: ExecutionParameters(self))
@@ -97,6 +108,16 @@ enum WindowAction: Int {
         case .moveUp: return "moveUp"
         case .moveDown: return "moveDown"
         case .almostMaximize: return "almostMaximize"
+        case .action0: return "action0"
+        case .action1: return "action1"
+        case .action2: return "action2"
+        case .action3: return "action3"
+        case .action4: return "action4"
+        case .action5: return "action5"
+        case .action6: return "action6"
+        case .action7: return "action7"
+        case .action8: return "action8"
+        case .action9: return "action9"
         }
     }
 
@@ -183,6 +204,36 @@ enum WindowAction: Int {
         case .almostMaximize:
             key = "e57-QJ-6bL.title"
             value = "Almost Maximize"
+        case .action0:
+            key = "action0"
+            value = "action0"
+        case .action1:
+            key = "action1"
+            value = "action1"
+        case .action2:
+            key = "action2"
+            value = "action2"
+        case .action3:
+            key = "action3"
+            value = "action3"
+        case .action4:
+            key = "action4"
+            value = "action4"
+        case .action5:
+            key = "action5"
+            value = "action5"
+        case .action6:
+            key = "action6"
+            value = "action6"
+        case .action7:
+            key = "action7"
+            value = "action7"
+        case .action8:
+            key = "action8"
+            value = "action8"
+        case .action9:
+            key = "action9"
+            value = "action9"
         }
         
         return NSLocalizedString(key, tableName: "Main", value: value, comment: "")
@@ -224,6 +275,16 @@ enum WindowAction: Int {
         case .topLeft: return Shortcut( ctrl|cmd, kVK_LeftArrow )
         case .topRight: return Shortcut( ctrl|cmd, kVK_RightArrow )
         case .restore: return Shortcut( ctrl|alt, kVK_Delete)
+        case .action0: return Shortcut( cmd|alt, kVK_ANSI_Keypad0)
+        case .action1: return Shortcut( cmd|alt, kVK_ANSI_Keypad1)
+        case .action2: return Shortcut( cmd|alt, kVK_ANSI_Keypad2)
+        case .action3: return Shortcut( cmd|alt, kVK_ANSI_Keypad3)
+        case .action4: return Shortcut( cmd|alt, kVK_ANSI_Keypad4)
+        case .action5: return Shortcut( cmd|alt, kVK_ANSI_Keypad5)
+        case .action6: return Shortcut( cmd|alt, kVK_ANSI_Keypad6)
+        case .action7: return Shortcut( cmd|alt, kVK_ANSI_Keypad7)
+        case .action8: return Shortcut( cmd|alt, kVK_ANSI_Keypad8)
+        case .action9: return Shortcut( cmd|alt, kVK_ANSI_Keypad9)
         default: return nil
         }
     }
@@ -251,6 +312,16 @@ enum WindowAction: Int {
         case .centerThird: return Shortcut( ctrl|alt, kVK_ANSI_F )
         case .lastTwoThirds: return Shortcut( ctrl|alt, kVK_ANSI_T )
         case .lastThird: return Shortcut( ctrl|alt, kVK_ANSI_G )
+        case .action0: return Shortcut( cmd|alt, kVK_ANSI_Keypad0)
+        case .action1: return Shortcut( cmd|alt, kVK_ANSI_Keypad1)
+        case .action2: return Shortcut( cmd|alt, kVK_ANSI_Keypad2)
+        case .action3: return Shortcut( cmd|alt, kVK_ANSI_Keypad3)
+        case .action4: return Shortcut( cmd|alt, kVK_ANSI_Keypad4)
+        case .action5: return Shortcut( cmd|alt, kVK_ANSI_Keypad5)
+        case .action6: return Shortcut( cmd|alt, kVK_ANSI_Keypad6)
+        case .action7: return Shortcut( cmd|alt, kVK_ANSI_Keypad7)
+        case .action8: return Shortcut( cmd|alt, kVK_ANSI_Keypad8)
+        case .action9: return Shortcut( cmd|alt, kVK_ANSI_Keypad9)
         default: return nil
         }
     }
@@ -283,6 +354,7 @@ enum WindowAction: Int {
         case .moveUp: return NSImage(imageLiteralResourceName: "moveUpTemplate")
         case .moveDown: return NSImage(imageLiteralResourceName: "moveDownTemplate")
         case .almostMaximize: return NSImage(imageLiteralResourceName: "almostMaximizeTemplate")
+        default: return NSImage(imageLiteralResourceName: "almostMaximizeTemplate")
         }
     }
     

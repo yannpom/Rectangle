@@ -124,7 +124,7 @@ class WindowManager {
         if lastRectangleAction?.action == calcResult.resultingAction,
             let currentCount = lastRectangleAction?.count {
             newCount = currentCount + 1
-            newCount %= 3
+            //newCount %= 3
         }
         
         windowHistory.lastRectangleActions[windowId] = RectangleAction(
